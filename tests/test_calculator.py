@@ -1,12 +1,12 @@
 import unittest
-from calculator import sum
+from myfiles import calculator
 
 class TestCalculator(unittest.TestCase):
     def test_sum_5_and_5_should_return_10(self):
-        self.assertEqual(sum(5,5), 10)
+        self.assertEqual(calculator.sum(5,5), 10)
     
     def test_sum_5_negative_and_5_should_return_0(self):
-        self.assertEqual(sum(-5,5), 0)
+        self.assertEqual(calculator.sum(-5,5), 0)
         
     def test_many_values(self):
         x_y_out = (
@@ -20,14 +20,15 @@ class TestCalculator(unittest.TestCase):
         for x_y_out in x_y_out:
             with self.subTest(x_y_out=x_y_out):
                 x, y, out = x_y_out
-                self.assertEqual(sum(x, y), out)
+                self.assertEqual(calculator.sum(x, y), out)
                 
     def test_sum_x_not_int_or_float_should_return_assertionerror(self):
         with self.assertRaises(AssertionError):
-            sum('11', 0)
+            calculator.sum('11', 0)
             
     def test_sum_y_not_int_or_float_should_return_assertionerror(self):
         with self.assertRaises(AssertionError):
-            sum(11, '0')
+            calculator.sum(11, '0')
 
-unittest.main(verbosity=2)
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
