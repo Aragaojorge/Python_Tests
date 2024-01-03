@@ -12,15 +12,29 @@ Refactor
 Part 3 -> improve your code
  
 """
+try:
+    import sys
+    import os
+    
+    sys.path.append(
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '../myfiles'
+            )
+        )
+    )
+except:
+    raise
 
 import unittest
-from myfiles import baconwitheggs
+from baconwitheggs import bacon_with_eggs
 
 
 class TestBaconWithEggs(unittest.TestCase):
     def test_bacon_with_eggs_should_raise_assertion_error_if_do_not_receive_int(self):
         with self.assertRaises(AssertionError):
-            baconwitheggs.bacon_with_eggs('')
+            bacon_with_eggs('')
             
     def test_bacon_with_eggs_should_return_bacon_wth_eggs_if_input_is_multiple_of_3_and_5(self):
         
@@ -30,7 +44,7 @@ class TestBaconWithEggs(unittest.TestCase):
         for input in inputs:
             with self.subTest(input = input, output = output):
                 self.assertEqual(
-                    baconwitheggs.bacon_with_eggs(input),
+                    bacon_with_eggs(input),
                     output,
                     msg = f'"{input}" did not return "{output}"'
                 )
@@ -43,7 +57,7 @@ class TestBaconWithEggs(unittest.TestCase):
         for input in inputs:
             with self.subTest(input = input, output = output):
                 self.assertEqual(
-                    baconwitheggs.bacon_with_eggs(input),
+                    bacon_with_eggs(input),
                     output,
                     msg = f'"{input}" did not return "{output}"'
                 )
@@ -56,7 +70,7 @@ class TestBaconWithEggs(unittest.TestCase):
         for input in inputs:
             with self.subTest(input = input, output = output):
                 self.assertEqual(
-                    baconwitheggs.bacon_with_eggs(input),
+                    bacon_with_eggs(input),
                     output,
                     msg = f'"{input}" did not return "{output}"'
                 )
@@ -69,7 +83,7 @@ class TestBaconWithEggs(unittest.TestCase):
         for input in inputs:
             with self.subTest(input = input, output = output):
                 self.assertEqual(
-                    baconwitheggs.bacon_with_eggs(input),
+                    bacon_with_eggs(input),
                     output,
                     msg = f'"{input}" did not return "{output}"'
                 )

@@ -13,8 +13,24 @@ class Person
             (recovered_data become True if recovered data successful)
 """
 
+try:
+    import sys
+    import os
+    
+    sys.path.append(
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '../myfiles'
+            )
+        )
+    )
+except:
+    raise
+
+
 import unittest
-from myfiles import Person
+from Person import Person
 # Import fake data
 from unittest.mock import patch
 
